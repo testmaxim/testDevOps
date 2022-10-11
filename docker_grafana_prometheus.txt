@@ -1,0 +1,17 @@
+создаем рой в docker
+docker swarm init
+
+запускаем наш stack рой
+docker stack deploy -c grafana-docker-stack/docker-compose.yml nt_01
+
+узнаем id prometheus
+docker ps | grep prometheus
+
+останавливаем наш контейнеp
+docker kill -s SIGHUP <id>
+
+покинуть рой
+docker swarm leave --force 
+
+скопировать буфер обмена
+:r! xclip -o и нажмите <ENTER>.
